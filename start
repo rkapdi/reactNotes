@@ -1,0 +1,271 @@
+front end UI lib/framework
+one of many ways to build apps
+glitch.com
+	- in browser editor
+	-html, css, js
+	-autodeploy
+	-remix community apps
+React router
+	-manages links and urls on client side
+react redux
+	-manages states in JS apps
+Use react when 
+	-dealing with a lot of data
+	-lots of UI els changing with dynamic data
+	-fresh data grabbing from server
+	-adding html w/ js
+	-guides you towards doing right things
+	-best documentatioin
+	-vibranat community
+	-more control over different pieces
+	-less opinonated
+
+REACT WEBPACK
+	-module bundler
+	-able to bundle any front end assets
+	-fine grain control over assets
+	
+JSX
+	-lang built around JS
+	-template tags:func calls written like HTML
+	-works well with react componenet model
+
+COMPONENTS
+	-UI els
+	
+comps, elements, props all work together to create UI
+comps concern with reutrning HTML you wanna put on page
+props are data you can pass onto comps to change behaviour or look of comp
+els are what you use to generate HTML that comps return.
+
+REACT ROUTER
+	-lib used with react to manage routers
+	-decide what to render when
+	-handle links
+	-routs are one of the most imp things on net
+	-allow people to go back and forth on app states
+	-create normal routes like in server side app but do this 
+	within browser
+	
+REACT REDUX
+	-add state to app
+	-can manage UI elements states
+	-a state can manage every UI element in app
+	-4D being that looks at app and sees all comps 
+	-state tree
+	-actions
+	-dispatchers
+	-reducers
+
+ACTIONS, HOW THEY WORK WITH REDUCERS
+	-actions are like small data payloads sent out to reducers
+	-reducers look at what happens in app which is described by action
+	then figure out what global state needs to be
+	-data can then flow down to comps so they can update themselves
+
+JSX: Java Script Extension
+-Syntax entension for JS
+-written to be used with JS
+-looks like HTML
+-JS file with JSX needs to be compiled for browsers to read
+-JSX Compiler
+
+JSX Elements
+	- <h1>Hello world</h1>
+	- treated as JS expressions
+	- can go anywhere JS expressions can go
+		-can be saved in array, saved in var, passed to func, etc
+	- const navBar = <nav> I am a nav bar </nav>;
+
+	- several JSX elements in an object
+		const myTeam = {
+			center: <li> Benzo Ali </li>,
+			powerForward: <li> Rasha Fe </li>,
+			smallForward: <li> Ali Basa </li>,
+		};
+
+JSX Attributes 
+	my-att-name="att-value"
+	-different elements with attributes
+		- const panda = <img src='images/panda.jpg' alt='panda' width='500px' height='500px'/>;
+		- const title = <h1 id='title'>Intr to React.js: part I </h1>;
+Nested JSX
+	JSX elements can be nested inside other JSX elements
+	- <a href="https://www.example.com"><h1>Click me!</h1></a>
+	- To make nested JSX readable, use HTML style line breaks:
+	- <a href="https://www.example.com">
+		<h1>
+			Click me!
+		</h1>
+	</a>
+	- IF JSX element takes > 1 line, wrap in ()
+	(
+		<a href="https://www.example.com">
+			<h1>
+				Click me!
+			</h1>
+		</a>
+	)
+	- Nested JSX expressions can be saved as variables, passed to funcs...
+	- const theExample = (
+		<a href="https://www.example.com">
+			<h1>
+				Click me!
+			</h1>
+		</a>
+	);
+
+JSX Outer Elements
+	- JSX elements must have exactly 1 outermost element
+	- first opening and closing tab of JSX el must be same type
+
+Rendering JSX: Making JSX expressions appear on screen
+	- ReactDOM.render(<h1>Hello world</h1>,
+	document.getElementById('app'));
+
+reactDOM
+	- JS lib
+	- contains several react specific methods dealing w/ DOM
+	- reactDOM.render() most common way to render JSX
+		- takes JSX exp as argument, creatrs tree of DOM nodes, adds tree to DOM
+	- the firs arg of reactDOM.render is appended to whatever el selected by second arg.
+	- only updates DOM elements that have changed.
+
+Passing Variables to reactDOM.render()
+	- first arg should evaluate to JSX exp
+	- can also be a var as long as it evaluates to JSX exp
+
+Virtual DOM
+	- if you render exact thing twice, it will only render once
+
+ADVANCED JSX
+
+class vs className
+	-common to use class as atrr in HTML
+	- <h1 class="big">Hey</h1>
+
+	!- In JSX need to use className
+	<h1 className="big">Hey</h1>
+	- when JSX is rendered, className rendered as class
+
+self-closing Tags
+	- some tags are self closing like <img> and <input>
+	- in JSX use slash for self closing tags
+	<br/>
+
+
+Curly bracers in JSX
+	-JSX doesnt not process numbers, it just reads them like HTML
+	- {} use curly braces for code you wanna execute
+
+
+Variables 
+	- can access variables in JSX expressioin even if they outside.
+	-can use to set attributes
+	const sideLength = "200px";
+
+const panda = (
+  <img
+    src="images/panda.jpg"
+    alt="panda"
+    height={sideLength}
+    width={sideLength} />
+);
+
+
+	Object properties are also used to set attributes:
+const pics = {
+  panda: "http://bit.ly/1Tqltv5",
+  owl: "http://bit.ly/1XGtkM3",
+  owlCat: "http://bit.ly/1Upbczi"
+}; 
+ 
+const panda = (
+  <img 
+    src={pics.panda} 
+    alt="Lazy Panda" />
+);
+ 
+const owl = (
+  <img 
+    src={pics.owl} 
+    alt="Unimpressed Owl" />
+);
+ 
+const owlCat = (
+  <img 
+    src={pics.owlCat} 
+    alt="Ghastly Abomination" />
+);
+
+Event Listneres
+	-similar to HTML listners
+	- make a listener by giving JSX elemtn a special att.
+	- <img onClick={myFunc} />
+	-name sshould be like onClick or onMouseOver
+	-on + [name_of_what_listening_for]
+	klf 
+
+JSX Conditionals
+	- can NOT inject IF statement in JSX expression.
+	- if (coinToss=='head'){
+		img = <img src= pics.dog>	
+	}else{
+		img = <img src=pics.kit />
+	}
+Ternary Operator
+	- x? y:z
+	- if x: T then ret Y,
+		else z
+	- const headline = (
+		<h1>
+			{age >= drinkingAge ?"Buy Drink" : "Do Teen Stuff"
+			}
+		</h1>
+	);
+
+	- const img = <img src={
+		pics[coinToss()==='heads'?'kitty':'doggy']}
+		/>;
+
+&& Operator
+	- { !baby && <li>Pizza</li> }
+
+.map
+	-  use for creating a list of JSX elements
+	- const strings = ['Home', 'Shop', 'About Me'];
+	 
+	 const listItems = strings.map(string => <li>{string}</li>);
+	  
+	  <ul>{listItems}</ul>
+
+
+Keys
+	- when mnking keys, good to havev keys sometimes.
+	- Key is a JSX att.
+	-  att_name = key
+	-  att_value should be something unique
+	- React uses keys to organize lists, not using keys will scramble into wrong order.
+	- Not all lists need keys
+	- Lists need keys when:
+		-- The list items hjave memory from one render to the next. For instance, when a to-do list renders, each item must “remember” whether it was checked off. The items shouldn’t get amnesia when they render
+		--A list’s order might be shuffled. For instance, a list of search results might be shuffled from one render to the next.
+	-! Never bad to use keys!
+
+	- const peopleLis = people.map((person, i)=>
+	<li key={'person_' + i}>{person}</li>
+	);
+
+React.createElement
+	- React code can be written w/o any JSX.
+	-const h1 = <h1>Hello world</h1>;
+can be rewritten without JSX, like this:
+
+const h1 = React.createElement(
+  "h1",
+  null,
+  "Hello world"
+);
+
+	- every JSX element is a call to createElement()
+
